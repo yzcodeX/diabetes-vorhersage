@@ -1,0 +1,247 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;  
+    background-color: #121212;  
+    color: #E0E0E0;  
+    justify-content: center; 
+    align-items: center; 
+}
+
+header {
+    padding: 1rem;
+    color: #E0E0E0;
+    background-color: #1E1E1E;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Schattierung nur unten */
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+header p {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #1F1F1F;  
+    color: #E0E0E0; 
+
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* zwei Spalten für Formular und Erklärungsbox */
+    gap: 2rem;                      /* abstand zw. Formular und Erklärung */
+    justify-content: center;        /* elemente horizontal zentrieren */
+    align-items: start;             /* elemente vertikal ausrichten */
+    text-align: center;
+    
+
+    /* Innenliegender Tiefeneffekt */
+    box-shadow: 
+        inset 0 4px 6px rgba(0, 0, 0, 0.3),             /* dunkler Schatten oben */
+        inset 0 -12px 15px rgba(255, 255, 255, 0.08),   /* heller Effekt unten */
+        inset 5px 0 15px rgba(0, 0, 0, 0.5),            /* schatten links */
+        inset -5px 0 15px rgba(0, 0, 0, 0.5);           /* schatten rechts */
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+form input {
+    width: 80%;
+    padding: 0.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;  
+
+    color: #E0E0E0; 
+    color: orange;
+}
+
+form input::placeholder {
+    font-size: 1.1rem;
+    color: #d4cece;  
+}
+
+form button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0.125em solid #1A1A1A;
+    border-radius: 10px; 
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* leichter Schatten */
+    transition: all 0.3s ease;                  /* sanfte Übergänge */
+    background-color: #0056b3; 
+    color: #ffffff; 
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    color: #ffffff;
+    background-color: #007BFF;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4); /* tieferer Schatten */
+    transform: translateY(-2px);                     /* leichter Hub-Effekt */
+    transition: all 0.3s ease;
+}
+
+.explanation {
+    padding: 2rem;
+    max-height: 500px; 
+    overflow-y: auto; 
+    background-color: #2d2d2d; 
+    color: #f5f5f5; 
+    border: 1px solid #3a3a3a; 
+    border-radius: 12px; 
+    text-align: left;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1rem; 
+    line-height: 1.6; 
+
+    /* innenliegender Tiefeneffekt */
+    box-shadow: 
+        inset 0 4px 5px rgba(0, 0, 0, 0.3),           /* dunkler Schatten oben */
+        inset 0 -12px 15px rgba(255, 255, 255, 0.06), /* heller Effekt unten */
+        inset 5px 0 15px rgba(0, 0, 0, 0.5),          /* schatten links */
+        inset -5px 0 15px rgba(0, 0, 0, 0.5);         /* schatten rechts */
+}
+
+.explanation h3 {
+    margin-bottom: 1rem;
+    margin-top: -0.5rem; 
+    text-align: center;
+    color: #cfcfcf; 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+}
+
+.explanation p {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.explanation p strong {
+    color: #4fc3f7; 
+}
+
+section#prediction-result {
+    grid-column: 1 / span 2; /* vorhersagebox nimmt beide Spalten ein */
+    margin: 2rem auto;       /* zentrierung durch Auto-Margin */
+    padding: 3rem; 
+    background-color: #2c3e50; 
+    color: #ecf0f1; 
+    border: 2px solid #34495e; 
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    width: 80%;
+    max-width: 600px;
+
+    box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.05), /* effekt oben */
+                inset 0 -8px 10px rgba(255, 255, 255, 0.05), /* heller Effekt unten */
+                inset 5px 0 15px rgba(0, 0, 0, 0.5),         /* schatten links */
+                inset -5px 0 15px rgba(0, 0, 0, 0.5);        /* schatten rechts */
+}
+
+section#prediction-result h2 {
+    font-size: 2.2rem; 
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+section#prediction-result p {
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+section#prediction-result button {
+    background-color: #7F8C8D; 
+    color: #fff;
+    font-size: 1.2rem;
+    border: 1px solid #95A5A6;
+    border-radius: 0.5rem;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    width: 60%;
+}
+
+section#prediction-result button:hover {
+    background-color: #95A5A6; 
+    color: #fff; 
+    transform: translateY(-2px); 
+    border: 1px solid #BDC3C7; 
+    box-shadow: 0 0 15px 5px rgba(189, 195, 199, 0.7);
+}
+
+.result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #2C2C2C;  
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.result_negative_txt {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #27ae60; 
+    border-radius: 10px; 
+    padding: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px 10px rgba(46, 204, 113, 0.7); 
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5); 
+}
+
+.result_positive_txt {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #c0392b; 
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 20px 10px rgba(231, 76, 60, 0.7);
+    transition: all 0.3s ease;
+}
+
+.disclaimer {
+    grid-column: 1 / span 2; /* vorhersagebox nimmt beide Spalten ein */
+    font-size: 0.9rem;
+    color: #d4cece; 
+    margin: 2rem auto;  
+    margin-top: 15px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.disclaimer strong {
+    color: #d9534f; 
+}

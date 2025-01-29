@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Diabetes-Vorhersage </title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1><u>Diabetes-Vorhersage</u></h1> <br>
+        <p> Bei fehlenden Werte den jeweiligen Durchschnittswert in Klammern eintragen. </p>
+    </header>
+
+    <main> 
+        {% if prediction_result is none %}
+        
+            <form action="/predict" method="POST" id = "prediction-form">
+                <input type="text" id="pregnancies" name="Pregnancies" placeholder="Anzahl der Schwangerschaften" required>
+                <input type="text" id="glucose" name="Glucose" placeholder="Glukose (121,98)" required>
+                <input type="text" id="bloodpressure" name="BloodPressure" placeholder="Blutdruck (72,40)" required>
+                <input type="text" id="skinthickness" name="SkinThickness" placeholder="Hautdicke (29)" required>
+                <input type="text" id="insulin" name="Insulin" placeholder="Insulin (126)" required>
+                <input type="text" step="0.1" id="bmi" name="BMI" placeholder="BMI (32,4)" required>
+                <input type="text" step="0.001" id="dpf" name="DiabetesPedigreeFunction" placeholder="Diabetes-Stammbaumfunktion (DPF) (0,47)" required>
+                <input type="text" id="age" name="Age" placeholder="Alter" required>
+
+                <button type="submit"> Vorhersage berechnen </button>
+            </form>
+
+            <div class="explanation">
+                <h3><u>Erklärung der Parameter</u></h3>
+                <p><strong>Schwangerschaften:</strong> Mehr Schwangerschaften können das Diabetesrisiko erhöhen, da sie die Insulinsensitivität beeinflussen.</p>
+                <p><strong>Glukose:</strong> Der Blutzuckerspiegel der Person.</p>
+                <p><strong>Blutdruck:</strong> Der Blutdruck der Person. Hoher Blutdruck ist mit einem erhöhten Risiko für Diabetes verbunden.</p>
+                <p><strong>Hautdicke:</strong> Die Dicke der Haut in mm. Die Dicke der Hautfalte weist auf die Fettverteilung hin, die mit dem Diabetesrisiko verknüpft ist.</p>
+                <p><strong>Insulin:</strong> Der Insulinspiegel der Person. Abnormale Insulinwerte deuten oft auf Insulinresistenz hin, die mit Diabetes zusammenhängt.</p>
+                <p><strong>BMI:</strong> Body-Mass-Index (BMI) der Person. Ein hoher BMI zeigt Fettleibigkeit, einen wichtigen Risikofaktor für Diabetes.</p>
+                <p><strong>Diabetes-Stammbaumfunktion (DPF):</strong> Ein Wert, die das Risiko beschreibt, an Diabetes zu erkranken, basierend auf der Familiengeschichte und genetischen Veranlagungen.</p>
+                <p><strong>Alter:</strong> Das Alter der Person in Jahren. Das Risiko für Diabetes steigt mit zunehmendem Alter.</p>
+            </div>
+       
+        {% else %}
+            <section class="result" id = "prediction-result">
+                <h2><u> Vorhersageergebnis:</u></h2>
+                {% if prediction_result == "Diabetes Negativ." %}
+                    <p class="result_negative_txt"> {{ prediction_result }} </p>
+                {% else %}
+                    <p class="result_positive_txt"> {{ prediction_result }} </p>
+                {% endif %}
+                <form action="/reset" method="POST">
+                    <button type="submit"> Eingaben zurücksetzen </button>
+                </form>
+            </section>
+            <p class="disclaimer"> 
+                <strong>Hinweis:</strong>
+                Die hier angezeigte Vorhersage basiert auf einem maschinellen Lernmodell und dient lediglich zu Informationszwecken. Sie stellt keine ärztliche Diagnose dar. Für eine genaue Diagnose und individuelle Beratung wenden Sie sich bitte an eine qualifizierte medizinische Fachkraft.
+            </p>
+        {% endif %}
+    </main>
+</body>
+</html>
