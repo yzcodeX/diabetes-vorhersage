@@ -60,7 +60,7 @@ Ausgabe: Diabetes Positiv oder Diabetes Negativ.
 ## Installation
 1. Repository klonen:
    ```bash
-   git clone https://github.com/yzcodeX/diabetes-prediction.git
+   git clone https://github.com/yzcodeX/diabetes-vorhersage.git
    cd diabetes-prediction
    ```
 2. Abhängigkeiten installieren:
