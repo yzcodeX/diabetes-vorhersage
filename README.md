@@ -56,6 +56,8 @@ Ausgabe: Diabetes Positiv oder Diabetes Negativ.
 ├── model.py                   # Python-Skript für das Training und Speichern des Modells
 ├── requirements.txt           # Liste der Projektabhängigkeiten
 ```
+## Demo
+https://github.com/user-attachments/assets/ec92008f-f4ec-4b8a-92b6-43498c774f29
 
 ## Installation
 1. Repository klonen:
